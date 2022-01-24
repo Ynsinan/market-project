@@ -12,6 +12,7 @@ export const ProductCardContainer = styled.div`
   color: ${(p) => p.theme.body};
   margin-right: 1rem;
   margin-bottom: 1rem;
+  padding: 1rem;
 `;
 
 export const ProductTopArea = styled.div`
@@ -28,10 +29,12 @@ export const Image = styled.img`
 export const ProductMainArea = styled.div`
   width: 100%;
   text-align: center;
+  padding-top: 1rem;
 `;
 
 export const ButtonWrapper = styled.div`
   width: 100%;
+  padding: 1rem;
 `;
 
 export const FavoriteButton = styled.button`
