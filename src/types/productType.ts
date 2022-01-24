@@ -13,6 +13,7 @@ export interface ProductType {
 
 export interface ProductState {
   data: ProductType[];
+  filteredData: ProductType[];
   message: string;
 }
 

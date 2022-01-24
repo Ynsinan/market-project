@@ -1,7 +1,8 @@
 import { ProductAction, ProductState } from "types/productType";
 
-const defaultState = {
+const defaultState: ProductState = {
   data: [],
+  filteredData: [],
   message: "redux calısıyor",
 };
 
@@ -14,17 +15,18 @@ const ProductReducer = (
       return {
         ...state,
         data: action.payload,
+        filteredData: action.payload,
       };
     case "FILTER_BY_NAME":
       if (action.payload === "") {
         return {
           ...state,
-          data: state.data,
+          filteredData: state.data,
         };
       } else {
         return {
           ...state,
-          data: state.data.filter((product) =>
+          filteredData: state.data.filter((product) =>
             product.name.trim().toLowerCase().includes(action.payload)
           ),
         };

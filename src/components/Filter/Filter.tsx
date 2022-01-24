@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { AppState } from "store";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import { filterByName } from "store/actions/ProductActions";
 import * as S from "./styles";
 
 const Filter = () => {
   const [inputValue, setInputValue] = useState("");
-  const products = useSelector((state: AppState) => state.products.data);
   const dispatch = useDispatch();
 
   const handleSearch = (
@@ -18,7 +17,7 @@ const Filter = () => {
 
   return (
     <div>
-      <input
+      <S.Input
         type="text"
         className="searchInput"
         placeholder="Search"
