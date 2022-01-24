@@ -27,8 +27,15 @@ a {
   margin: 0 auto;
   cursor: pointer;
 }
-.active {
+.lightActive {
   width: 3%;
   text-align: center;
-  background-color: blue;
+  background-color: #716f81;
+  color: #f2e1c1;
+}
+.darkActive {
+  width: 3%;
+  text-align: center;
+  background-color: #f2e1c1;
+  color: #716f81;
 }
