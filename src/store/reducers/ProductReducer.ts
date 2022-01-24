@@ -3,6 +3,7 @@ import { ProductAction, ProductState } from "types/productType";
 const defaultState: ProductState = {
   data: [],
   filteredData: [],
+  basket: [],
   message: "redux calısıyor",
 };
 
@@ -31,6 +32,19 @@ const ProductReducer = (
           ),
         };
       }
+    case "ADD_BASKET_ITEM":
+      return {
+        ...state,
+        basket: state.basket.find(
+          (basketItem) => basketItem.added === action.payload.added
+        )
+          ? state.basket.map((basketItem) =>
+              basketItem.added === action.payload.added
+                ? { ...basketItem, count: basketItem.count + 1 }
+                : basketItem
+            )
+          : [...state.basket, { ...action.payload, count: 1 }],
+      };
     default:
       return state;
   }

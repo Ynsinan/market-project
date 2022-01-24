@@ -9,11 +9,13 @@ export interface ProductType {
   added: number;
   manufacturer: string;
   itemType: string;
+  count?: any;
 }
 
 export interface ProductState {
   data: ProductType[];
   filteredData: ProductType[];
+  basket: ProductType[];
   message: string;
 }
 
@@ -30,9 +32,15 @@ interface FILTER_BY_NAME {
   payload: string;
 }
 
+interface ADD_BASKET_ITEM {
+  type: "ADD_BASKET_ITEM";
+  payload: ProductType;
+}
+
 export type ProductAction =
   | GET_PRODUCTS_SUCCESS
   | GET_PRODUCTS_ERROR
-  | FILTER_BY_NAME;
+  | FILTER_BY_NAME
+  | ADD_BASKET_ITEM;
 
 export type ProductDispatch = ThunkDispatch<ProductState, any, ProductAction>;

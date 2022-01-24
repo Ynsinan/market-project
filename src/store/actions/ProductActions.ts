@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ProductDispatch } from "types/productType";
+import { ProductDispatch, ProductType } from "types/productType";
 
 export const getProductsAll = () => async (dispatch: ProductDispatch) => {
   try {
@@ -15,4 +15,9 @@ export const getProductsAll = () => async (dispatch: ProductDispatch) => {
 export const filterByName =
   (inputValue: string) => (dispatch: ProductDispatch) => {
     dispatch({ type: "FILTER_BY_NAME", payload: inputValue });
+  };
+
+export const addBasket =
+  (product: ProductType) => (dispatch: ProductDispatch) => {
+    dispatch({ type: "ADD_BASKET_ITEM", payload: product });
   };
