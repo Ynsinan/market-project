@@ -13,6 +13,8 @@ export const Container = styled.div`
 
 export const Button = styled.button`
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 `;
 
 export const HeaderTitle = styled.div``;
