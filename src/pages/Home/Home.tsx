@@ -5,19 +5,20 @@ import { getProductsAll } from "store/actions/ProductActions";
 
 import * as S from "./styles";
 
-const Home = () => {
+const Home = ({ theme }: any) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getProductsAll());
   }, [dispatch]);
+
   return (
     <S.Home>
       <S.FilterArea>
         <Filter />
       </S.FilterArea>
       <S.ProductsArea>
-        <Pagination />
+        <Pagination theme={theme} />
       </S.ProductsArea>
     </S.Home>
   );

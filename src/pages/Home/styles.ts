@@ -11,7 +11,13 @@ export const ProductsArea = styled.div`
 `;
 
 export const FilterArea = styled.div`
+  display: flex;
+  justify-content: center;
   width: 20%;
   padding-top: 1rem;
   background-color: ${(p) => p.theme.fontColor};
+  border-radius: 2rem;
+  height: 100vh;
+  position: sticky;
+  top: 0;
 `;
