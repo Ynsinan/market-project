@@ -26,13 +26,29 @@ export const Image = styled.img`
 `;
 
 export const ProductMainArea = styled.div`
+  width: 100%;
   text-align: center;
+`;
+
+export const ButtonWrapper = styled.div`
+  width: 100%;
+`;
+
+export const FavoriteButton = styled.button`
+  width: 50%;
+  padding: 20px;
+`;
+
+export const AddBasketButton = styled.button`
+  width: 50%;
+  padding: 20px;
 `;
 
 export const ProductTagArea = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  padding-top: 20px;
 `;
 
 export const ProductTag = styled.p`

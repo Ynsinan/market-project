@@ -17,7 +17,11 @@ const ProductCard = ({ product }: props) => {
       </S.ProductTopArea>
       <S.ProductMainArea>
         <p>{product.name}</p>
-        <p>{product.price}</p>
+        <p>{product.price}₺</p>
+        <S.ButtonWrapper>
+          <S.FavoriteButton>Favorite</S.FavoriteButton>
+          <S.AddBasketButton>Add Basket</S.AddBasketButton>
+        </S.ButtonWrapper>
       </S.ProductMainArea>
       {product.tags ? (
         <S.ProductTagArea>
