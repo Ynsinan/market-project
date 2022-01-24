@@ -10,4 +10,7 @@ export const ProductsWrapper = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  .active {
+    color: red;
+  }
 `;

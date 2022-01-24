@@ -6,8 +6,10 @@ import { AppState } from "store";
 import { ProductType } from "types/productType";
 import * as S from "./styles";
 
-const Pagination = () => {
-  const products = useSelector((state: AppState) => state.products.filteredData);
+const Pagination = ({theme}:any) => {
+  const products = useSelector(
+    (state: AppState) => state.products.filteredData
+  );
   const [currentItems, setCurrentItems] = useState<ProductType[]>();
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
@@ -53,7 +55,7 @@ const Pagination = () => {
           breakClassName="page-item"
           breakLinkClassName="page-link"
           containerClassName="pagination"
-          activeClassName="active"
+          activeClassName={theme === "light" ? "lightActive" : "darkActive"}
         />
       </>
     </S.PaginationProductWrapper>
