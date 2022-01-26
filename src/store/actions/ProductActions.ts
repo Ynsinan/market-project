@@ -41,3 +41,8 @@ export const decrease =
   (product: ProductType) => (dispatch: ProductDispatch) => {
     dispatch({ type: "DECREASE", payload: product });
   };
+
+export const removeBasketItem =
+  (product: ProductType) => (dispatch: ProductDispatch) => {
+    dispatch({ type: "REMOVE_BASKET_ITEM", payload: product });
+  };

@@ -58,6 +58,11 @@ interface DECREASE {
   type: "DECREASE";
   payload: ProductType;
 }
+
+interface REMOVE_BASKET_ITEM {
+  type: "REMOVE_BASKET_ITEM";
+  payload: ProductType;
+}
 export type ProductAction =
   | GET_PRODUCTS_SUCCESS
   | GET_PRODUCTS_ERROR
@@ -66,6 +71,7 @@ export type ProductAction =
   | ADD_FAVORITES_ITEM
   | REMOVE_FAVORITES_ITEM
   | INCREMENT
-  | DECREASE;
+  | DECREASE
+  | REMOVE_BASKET_ITEM;
 
 export type ProductDispatch = ThunkDispatch<ProductState, any, ProductAction>;

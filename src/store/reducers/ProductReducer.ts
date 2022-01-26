@@ -86,17 +86,33 @@ const ProductReducer = (
           ),
       };
     case "DECREASE":
+      if (action.payload.count < 1) {
+        return {
+          ...state,
+          basket: state.basket.filter(
+            (basketItem) => basketItem.added !== action.payload.added
+          ),
+        };
+      } else {
+        return {
+          ...state,
+          basket:
+            state.basket.find(
+              (basketItem) => basketItem.added === action.payload.added
+            ) &&
+            state.basket.map((basketItem) =>
+              basketItem.added === action.payload.added
+                ? { ...basketItem, count: basketItem.count - 1 }
+                : basketItem
+            ),
+        };
+      }
+    case "REMOVE_BASKET_ITEM":
       return {
         ...state,
-        basket:
-          state.basket.find(
-            (basketItem) => basketItem.added === action.payload.added
-          ) &&
-          state.basket.map((basketItem) =>
-            basketItem.added === action.payload.added
-              ? { ...basketItem, count: basketItem.count - 1 }
-              : basketItem
-          ),
+        basket: state.basket.filter(
+          (basketItem) => basketItem.added !== action.payload.added
+        ),
       };
 
     default:
