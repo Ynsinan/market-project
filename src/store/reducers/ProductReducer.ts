@@ -1,3 +1,4 @@
+import { Basket } from "components/Navbar/styles";
 import { ProductAction, ProductState } from "types/productType";
 
 const defaultState: ProductState = {
@@ -72,6 +73,33 @@ const ProductReducer = (
             : product
         ),
       };
+    case "INCREMENT":
+      return {
+        ...state,
+        basket:
+          state.basket.find(
+            (basketItem) => basketItem.added === action.payload.added
+          ) &&
+          state.basket.map((basketItem) =>
+            basketItem.added === action.payload.added
+              ? { ...basketItem, count: basketItem.count + 1 }
+              : basketItem
+          ),
+      };
+    case "DECREASE":
+      return {
+        ...state,
+        basket:
+          state.basket.find(
+            (basketItem) => basketItem.added === action.payload.added
+          ) &&
+          state.basket.map((basketItem) =>
+            basketItem.added === action.payload.added
+              ? { ...basketItem, count: basketItem.count - 1 }
+              : basketItem
+          ),
+      };
+    
     default:
       return state;
   }

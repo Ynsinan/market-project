@@ -31,3 +31,13 @@ export const removeFavorite =
   (product: ProductType) => (dispatch: ProductDispatch) => {
     dispatch({ type: "REMOVE_FAVORITES_ITEM", payload: product });
   };
+
+export const increment =
+  (product: ProductType) => (dispatch: ProductDispatch) => {
+    dispatch({ type: "INCREMENT", payload: product });
+  };
+
+export const decrease =
+  (product: ProductType) => (dispatch: ProductDispatch) => {
+    dispatch({ type: "DECREASE", payload: product });
+  };

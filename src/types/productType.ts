@@ -11,6 +11,7 @@ export interface ProductType {
   itemType: string;
   count?: any;
   isFavorite?: boolean;
+  totalUnit?: any;
 }
 
 export interface ProductState {
@@ -47,12 +48,24 @@ interface REMOVE_FAVORITES_ITEM {
   type: "REMOVE_FAVORITES_ITEM";
   payload: ProductType;
 }
+
+interface INCREMENT {
+  type: "INCREMENT";
+  payload: ProductType;
+}
+
+interface DECREASE {
+  type: "DECREASE";
+  payload: ProductType;
+}
 export type ProductAction =
   | GET_PRODUCTS_SUCCESS
   | GET_PRODUCTS_ERROR
   | FILTER_BY_NAME
   | ADD_BASKET_ITEM
   | ADD_FAVORITES_ITEM
-  | REMOVE_FAVORITES_ITEM;
+  | REMOVE_FAVORITES_ITEM
+  | INCREMENT
+  | DECREASE;
 
 export type ProductDispatch = ThunkDispatch<ProductState, any, ProductAction>;
