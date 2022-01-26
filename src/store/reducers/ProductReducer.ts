@@ -1,4 +1,3 @@
-import { Basket } from "components/Navbar/styles";
 import { ProductAction, ProductState } from "types/productType";
 
 const defaultState: ProductState = {
@@ -99,7 +98,7 @@ const ProductReducer = (
               : basketItem
           ),
       };
-    
+
     default:
       return state;
   }
