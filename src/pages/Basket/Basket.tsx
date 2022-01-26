@@ -24,7 +24,7 @@ const Basket = () => {
           );
         })}
       </S.ProductsList>
-      <S.TotalPrice>{total}</S.TotalPrice>
+      <S.TotalPrice>{total}₺</S.TotalPrice>
     </S.BasketWrapper>
   );
 };
