@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+const NavbarButtons = styled.p`
+  cursor: pointer;
+  color: ${(p) => p.theme.body};
+`;
+
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -17,7 +22,10 @@ export const Button = styled.button`
   border: none;
 `;
 
-export const HeaderTitle = styled.div``;
+export const HeaderTitle = styled.div`
+  cursor: pointer;
+  color: ${(p) => p.theme.body};
+`;
 
 export const HeaderRight = styled.div`
   width: 30%;
@@ -25,10 +33,32 @@ export const HeaderRight = styled.div`
   justify-content: space-between;
 `;
 
-export const Basket = styled.p`
-  cursor: pointer;
+export const Basket = styled(NavbarButtons)`
+  position: relative;
+
+  span {
+    position: absolute;
+    font-size: 12px;
+    font-weight: bolder;
+    border-radius: 50%;
+    background: ${(p) => p.theme.body};
+    color: ${(p) => p.theme.fontColor};
+    padding: 0 5px;
+    vertical-align: top;
+  }
 `;
 
-export const Favorite = styled.p`
-  cursor: pointer;
+export const Favorite = styled(NavbarButtons)`
+  position: relative;
+
+  span {
+    position: absolute;
+    font-size: 12px;
+    font-weight: bolder;
+    border-radius: 50%;
+    background: ${(p) => p.theme.body};
+    color: ${(p) => p.theme.fontColor};
+    padding: 0 5px;
+    vertical-align: top;
+  }
 `;

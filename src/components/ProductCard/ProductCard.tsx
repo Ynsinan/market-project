@@ -1,6 +1,11 @@
 import { useDispatch } from "react-redux";
-import { addBasket } from "store/actions/ProductActions";
+import {
+  addBasket,
+  addFavorite,
+  removeFavorite,
+} from "store/actions/ProductActions";
 import { ProductType } from "types/productType";
+import { FcLike, FcDislike } from "react-icons/fc";
 import * as S from "./styles";
 
 type props = {
@@ -13,8 +18,29 @@ const ProductCard = ({ product }: props) => {
   const handleClickBasket = () => {
     dispatch(addBasket(product));
   };
+
   return (
     <S.ProductCardContainer>
+      {product?.isFavorite === undefined || product?.isFavorite === false ? (
+        <S.FavoriteButton
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(addFavorite(product));
+          }}
+        >
+          <FcLike size={30} />
+        </S.FavoriteButton>
+      ) : (
+        <S.FavoriteButton
+          onClick={(e) => {
+            e.preventDefault();
+            dispatch(removeFavorite(product));
+          }}
+        >
+          <FcDislike size={30} />
+        </S.FavoriteButton>
+      )}
+
       <S.ProductTopArea>
         <S.Image
           src="ProductImage.jpg"
@@ -28,19 +54,12 @@ const ProductCard = ({ product }: props) => {
         <p>{product.name}</p>
         <p>{product.price}₺</p>
         <S.ButtonWrapper>
-          <S.FavoriteButton>Favorite</S.FavoriteButton>
           <S.AddBasketButton onClick={handleClickBasket}>
             Add Basket
           </S.AddBasketButton>
         </S.ButtonWrapper>
       </S.ProductMainArea>
-      {/* {product.tags ? (
-        <S.ProductTagArea>
-          {product.tags.map((tag, key) => {
-            return <S.ProductTag key={key}>{tag}</S.ProductTag>;
-          })}
-        </S.ProductTagArea>
-      ) : null} */}
+     
     </S.ProductCardContainer>
   );
 };

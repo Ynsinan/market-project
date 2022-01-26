@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ProductCardContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,23 +39,18 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const FavoriteButton = styled.button`
-  width: 50%;
-  padding: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
 `;
 
 export const AddBasketButton = styled.button`
   width: 50%;
   padding: 20px;
+  background-color: ${(p) => p.theme.body};
+  border: none;
 `;
 
-export const ProductTagArea = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-top: 20px;
-`;
-
-export const ProductTag = styled.p`
-  margin-right: 0.2rem;
-  border: 1px solid red;
-`;

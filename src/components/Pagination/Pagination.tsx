@@ -6,10 +6,11 @@ import { AppState } from "store";
 import { ProductType } from "types/productType";
 import * as S from "./styles";
 
-const Pagination = ({theme}:any) => {
+const Pagination = ({ theme }: any) => {
   const products = useSelector(
     (state: AppState) => state.products.filteredData
   );
+
   const [currentItems, setCurrentItems] = useState<ProductType[]>();
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
