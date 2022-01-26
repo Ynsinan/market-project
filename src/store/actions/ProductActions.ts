@@ -21,3 +21,13 @@ export const addBasket =
   (product: ProductType) => (dispatch: ProductDispatch) => {
     dispatch({ type: "ADD_BASKET_ITEM", payload: product });
   };
+
+export const addFavorite =
+  (product: ProductType) => (dispatch: ProductDispatch) => {
+    dispatch({ type: "ADD_FAVORITES_ITEM", payload: product });
+  };
+
+export const removeFavorite =
+  (product: ProductType) => (dispatch: ProductDispatch) => {
+    dispatch({ type: "REMOVE_FAVORITES_ITEM", payload: product });
+  };

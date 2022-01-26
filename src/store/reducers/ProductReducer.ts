@@ -4,6 +4,7 @@ const defaultState: ProductState = {
   data: [],
   filteredData: [],
   basket: [],
+  favorites: [],
   message: "redux calısıyor",
 };
 
@@ -44,6 +45,32 @@ const ProductReducer = (
                 : basketItem
             )
           : [...state.basket, { ...action.payload, count: 1 }],
+      };
+    case "ADD_FAVORITES_ITEM":
+      return {
+        ...state,
+        filteredData: state.filteredData.map((product) =>
+          product.added === action.payload.added
+            ? { ...product, isFavorite: true }
+            : product
+        ),
+        favorites: state.favorites.find(
+          (product) => product.added === action.payload.added
+        )
+          ? state.favorites
+          : [...state.favorites, { ...action.payload, isFavorite: true }],
+      };
+    case "REMOVE_FAVORITES_ITEM":
+      return {
+        ...state,
+        favorites: state.favorites.filter(
+          (product) => product.added !== action.payload.added
+        ),
+        filteredData: state.filteredData.map((product) =>
+          product.added === action.payload.added
+            ? { ...product, isFavorite: false }
+            : product
+        ),
       };
     default:
       return state;
