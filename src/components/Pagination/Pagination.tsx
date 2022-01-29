@@ -25,6 +25,7 @@ const Pagination = ({ theme }: any) => {
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(products.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(products.length / 16));
+    console.log(products);
   }, [itemOffset, products]);
 
   return (

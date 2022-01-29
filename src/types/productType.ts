@@ -63,6 +63,11 @@ interface REMOVE_BASKET_ITEM {
   type: "REMOVE_BASKET_ITEM";
   payload: ProductType;
 }
+
+interface SORT_PRICE {
+  type: "SORT_PRICE";
+  payload: string;
+}
 export type ProductAction =
   | GET_PRODUCTS_SUCCESS
   | GET_PRODUCTS_ERROR
@@ -72,6 +77,7 @@ export type ProductAction =
   | REMOVE_FAVORITES_ITEM
   | INCREMENT
   | DECREASE
-  | REMOVE_BASKET_ITEM;
+  | REMOVE_BASKET_ITEM
+  | SORT_PRICE;
 
 export type ProductDispatch = ThunkDispatch<ProductState, any, ProductAction>;

@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   addBasket,
   addFavorite,
@@ -7,6 +7,7 @@ import {
 import { ProductType } from "types/productType";
 import { FcLike, FcDislike } from "react-icons/fc";
 import * as S from "./styles";
+import { AppState } from "store";
 
 type props = {
   product: ProductType;
@@ -14,10 +15,12 @@ type props = {
 
 const ProductCard = ({ product }: props) => {
   const dispatch = useDispatch();
-
+  const favorites = useSelector((state: AppState) => state.products.favorites);
   const handleClickBasket = () => {
     dispatch(addBasket(product));
   };
+
+  localStorage.setItem("favorites", JSON.stringify(favorites));
 
   return (
     <S.ProductCardContainer>
@@ -59,7 +62,6 @@ const ProductCard = ({ product }: props) => {
           </S.AddBasketButton>
         </S.ButtonWrapper>
       </S.ProductMainArea>
-     
     </S.ProductCardContainer>
   );
 };

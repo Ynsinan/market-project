@@ -4,7 +4,7 @@ const defaultState: ProductState = {
   data: [],
   filteredData: [],
   basket: [],
-  favorites: [],
+  favorites: JSON.parse(localStorage.getItem("favorites") || "[]") || [],
   message: "redux calısıyor",
 };
 
@@ -14,6 +14,13 @@ const ProductReducer = (
 ) => {
   switch (action.type) {
     case "GET_PRODUCTS_SUCCESS":
+      action.payload.forEach((product) =>
+        state.favorites.forEach((favProduct) => {
+          if (product.added === favProduct.added) {
+            product.isFavorite = true;
+          }
+        })
+      );
       return {
         ...state,
         data: action.payload,
@@ -113,6 +120,24 @@ const ProductReducer = (
         basket: state.basket.filter(
           (basketItem) => basketItem.added !== action.payload.added
         ),
+      };
+    case "SORT_PRICE":
+      if (action.payload === "less to more") {
+        console.log("less to more");
+        return {
+          ...state,
+          filteredData: state.data.sort((a, b) => a.price - b.price),
+        };
+      } else if (action.payload === "more to less") {
+        console.log("more to less");
+        return {
+          ...state,
+          filteredData: state.data.sort((a, b) => b.price - a.price),
+        };
+      }
+      return {
+        ...state,
+        filteredData: state.data,
       };
 
     default:
