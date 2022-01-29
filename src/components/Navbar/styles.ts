@@ -14,6 +14,8 @@ export const Container = styled.div`
   background-color: ${(p) => p.theme.fontColor};
   color: ${(p) => p.theme.body};
   padding: 2rem;
+  font-size: 1.3rem;
+  font-weight: bolder;
 `;
 
 export const Button = styled.button`
@@ -25,6 +27,9 @@ export const Button = styled.button`
 export const HeaderTitle = styled.div`
   cursor: pointer;
   color: ${(p) => p.theme.body};
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const HeaderRight = styled.div`
@@ -36,6 +41,9 @@ export const HeaderRight = styled.div`
 export const Basket = styled(NavbarButtons)`
   position: relative;
 
+  &:hover {
+    text-decoration: underline;
+  }
   span {
     position: absolute;
     font-size: 12px;
@@ -50,7 +58,9 @@ export const Basket = styled(NavbarButtons)`
 
 export const Favorite = styled(NavbarButtons)`
   position: relative;
-
+  &:hover {
+    text-decoration: underline;
+  }
   span {
     position: absolute;
     font-size: 12px;
